@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 4px 8px;
+            
+        }
+        
+      </style>
+  <script src="code.js"></script>
+  <body>
+
+  <p>
+          <label>Last Name:</label>
+          <input type = "lastname"
+                  id = "myLastName"
+                  />
+          <button id="btn-search">Search</button>
+          <p>STUDENT FOUND: </p>
+          <ul id = "list"> </ul>
+
+          
+          
+          <script>
+            var buttonElement = document.getElementById("btn-search");
+            buttonElement.addEventListener("click", function(event){
+            
+                var lastName = document.getElementById("myLastName").value;
+
+                var bob = new Student("Bob", "Smith",["CPSC 131", "CPSC 215", "CPSC 210"], ["A", "B", "C"]);
+                var jeff = new Student("Jeff", "Smith",["CPSC 131", "CPSC 315", "CPSC 121"], ["F", "F", "F"]);
+                var kim = new Student("Kim", "Smith",["CPSC 170", "CPSC 315", "CPSC 120"], ["D", "D", "D"]);
+                var amy = new Student("Amy", "Gonzalez",["CPSC 311", "CPSC 315", "CPSC 210"], ["A", "B", "C"]);
+                var brett = new Student("Brett", "Gonzalez",["CPSC 425", "CPSC 340", "CPSC 440"], ["F", "F", "F"]);
+                var gio = new Student("Gio", "Gonzalez",["CPSC 345", "CPSC 318", "CPSC 190"], ["D", "D", "D"]);
+
+
+
+                var model = new StudentModel();
+
+                model.addStudents(bob);
+                model.addStudents(jeff);
+                model.addStudents(kim);
+                model.addStudents(amy);
+                model.addStudents(brett);
+                model.addStudents(gio);
+
+                var list = new ListView(model);
+
+                list.createList(lastName);
+
+
+
+            });
+            
+
+          </script>
+        </p>
+        <div>Classes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grade</div>
+        <div id="table2"></div>
+      </body>
+      
+  </head>
